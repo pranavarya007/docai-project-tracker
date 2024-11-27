@@ -5,13 +5,13 @@ import { Calendar, ChevronRight, Plus, Save, CheckCircle2, Edit3, Trash2 } from 
 // Project Phases Data
 const projectPhases = [
   {
-    week: 1,
-    name: "Project Foundation & Authentication",
-    days: [
+    "week": 1,
+    "name": "Project Foundation & Authentication",
+    "days": [
       {
-        day: 1,
-        title: "Project Setup",
-        tasks: [
+        "day": 1,
+        "title": "Project Setup",
+        "tasks": [
           "Create Next.js project",
           "Configure Tailwind CSS",
           "Set up project folder structure",
@@ -19,9 +19,420 @@ const projectPhases = [
           "Set up GitHub project board"
         ]
       },
-      // ... other days would be similarly structured
+      {
+        "day": 2,
+        "title": "Authentication Setup",
+        "tasks": [
+          "Set up Firebase project",
+          "Configure project settings",
+          "Integrate Firebase SDK",
+          "Test basic Firebase connection"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Authentication Features",
+        "tasks": [
+          "Implement Google/Email authentication",
+          "Create authentication context",
+          "Develop login and signup pages",
+          "Test authentication workflows"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Frontend Structure Planning",
+        "tasks": [
+          "Design initial wireframes",
+          "Sketch layout components",
+          "Plan navigation structure",
+          "Research dark/light mode implementation"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Frontend Base Structure",
+        "tasks": [
+          "Create responsive layout components",
+          "Implement dark/light mode",
+          "Set up initial routing",
+          "Test navigation flows"
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Project Configuration Basics",
+        "tasks": [
+          "Configure environment variables",
+          "Set up basic error logging",
+          "Create an initial deployment pipeline"
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Review and Documentation",
+        "tasks": [
+          "Write initial documentation",
+          "Perform first code review",
+          "Finalize Week 1 progress"
+        ]
+      }
     ]
   },
+  {
+    "week": 2,
+    "name": "Document Upload & Processing",
+    "days": [
+      {
+        "day": 8,
+        "title": "Upload Interface Basics",
+        "tasks": [
+          "Create file upload component",
+          "Add input validation for files",
+          "Implement basic styling for file upload"
+        ]
+      },
+      {
+        "day": 9,
+        "title": "Upload Interface Enhancements",
+        "tasks": [
+          "Add drag and drop functionality",
+          "Create file preview functionality",
+          "Test upload progress indicator"
+        ]
+      },
+      {
+        "day": 10,
+        "title": "Document Processing Setup",
+        "tasks": [
+          "Set up PDF parsing logic",
+          "Develop text extraction utility",
+          "Plan text chunking algorithm"
+        ]
+      },
+      {
+        "day": 11,
+        "title": "Advanced Document Processing",
+        "tasks": [
+          "Implement OCR for scanned documents",
+          "Set up document metadata storage",
+          "Test document processing pipeline"
+        ]
+      },
+      {
+        "day": 12,
+        "title": "Database Integration Basics",
+        "tasks": [
+          "Set up Firebase database",
+          "Create document storage schema",
+          "Develop basic document tracking"
+        ]
+      },
+      {
+        "day": 13,
+        "title": "Document Library Features",
+        "tasks": [
+          "Add user document library interface",
+          "Implement basic search functionality",
+          "Test document retrieval features"
+        ]
+      },
+      {
+        "day": 14,
+        "title": "API Integration",
+        "tasks": [
+          "Develop document management APIs",
+          "Connect backend to database",
+          "Test API endpoints"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "name": "AI Chat Integration",
+    "days": [
+      {
+        "day": 15,
+        "title": "Chat UI Setup",
+        "tasks": [
+          "Create chat interface skeleton",
+          "Add message input component",
+          "Implement send functionality"
+        ]
+      },
+      {
+        "day": 16,
+        "title": "Chat UI Enhancements",
+        "tasks": [
+          "Develop conversation history display",
+          "Design responsive chat layout",
+          "Add error and loading states"
+        ]
+      },
+      {
+        "day": 17,
+        "title": "AI API Setup",
+        "tasks": [
+          "Connect to OpenAI API",
+          "Develop prompt engineering utility",
+          "Test basic AI responses"
+        ]
+      },
+      {
+        "day": 18,
+        "title": "Context Management",
+        "tasks": [
+          "Implement conversation context retention",
+          "Optimize prompt building",
+          "Add token usage tracking"
+        ]
+      },
+      {
+        "day": 19,
+        "title": "Chat Multi-Document Features",
+        "tasks": [
+          "Develop multi-document chat capabilities",
+          "Add semantic search integration",
+          "Test document switching in chat"
+        ]
+      },
+      {
+        "day": 20,
+        "title": "Citation and Source Tracking",
+        "tasks": [
+          "Implement source tracking",
+          "Develop citation display functionality",
+          "Test source verification"
+        ]
+      },
+      {
+        "day": 21,
+        "title": "Export and Advanced Testing",
+        "tasks": [
+          "Develop conversation export functionality",
+          "Perform thorough UI/UX testing",
+          "Finalize Week 3 deliverables"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "name": "Monetization & User Experience",
+    "days": [
+      {
+        "day": 22,
+        "title": "Freemium Model Setup",
+        "tasks": [
+          "Create pricing tiers",
+          "Develop credit-based usage system",
+          "Design upgrade prompts"
+        ]
+      },
+      {
+        "day": 23,
+        "title": "Freemium Model Testing",
+        "tasks": [
+          "Implement paywall components",
+          "Test credit system workflows",
+          "Adjust pricing tier logic"
+        ]
+      },
+      {
+        "day": 24,
+        "title": "Payment Integration Basics",
+        "tasks": [
+          "Set up Stripe payment gateway",
+          "Test basic payment flows",
+          "Develop subscription management backend"
+        ]
+      },
+      {
+        "day": 25,
+        "title": "Payment Features",
+        "tasks": [
+          "Add payment success/failure flows",
+          "Implement receipt generation",
+          "Test payment method management"
+        ]
+      },
+      {
+        "day": 26,
+        "title": "User Onboarding Flow",
+        "tasks": [
+          "Develop onboarding screens",
+          "Add tutorial section",
+          "Test user onboarding workflows"
+        ]
+      },
+      {
+        "day": 27,
+        "title": "User Feedback System",
+        "tasks": [
+          "Create feedback form",
+          "Develop backend for feedback storage",
+          "Test feedback submission and viewing"
+        ]
+      },
+      {
+        "day": 28,
+        "title": "Accessibility Enhancements",
+        "tasks": [
+          "Add accessibility features",
+          "Test for screen reader compatibility",
+          "Ensure keyboard navigation works"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "name": "Performance & Optimization",
+    "days": [
+      {
+        "day": 29,
+        "title": "Code Splitting",
+        "tasks": [
+          "Implement dynamic imports",
+          "Analyze bundle size",
+          "Test for performance improvements"
+        ]
+      },
+      {
+        "day": 30,
+        "title": "Rendering Optimization",
+        "tasks": [
+          "Optimize rendering performance",
+          "Reduce unnecessary re-renders",
+          "Implement caching strategies"
+        ]
+      },
+      {
+        "day": 31,
+        "title": "Security Basics",
+        "tasks": [
+          "Implement basic encryption",
+          "Set up secure environment variables",
+          "Test basic security features"
+        ]
+      },
+      {
+        "day": 32,
+        "title": "Advanced Security",
+        "tasks": [
+          "Add multi-factor authentication",
+          "Develop comprehensive error handling",
+          "Perform security audits"
+        ]
+      },
+      {
+        "day": 33,
+        "title": "Unit Testing",
+        "tasks": [
+          "Write unit tests for components",
+          "Develop unit tests for APIs",
+          "Test coverage for core modules"
+        ]
+      },
+      {
+        "day": 34,
+        "title": "Integration Testing",
+        "tasks": [
+          "Perform integration tests",
+          "Identify and resolve bugs",
+          "Test edge cases"
+        ]
+      },
+      {
+        "day": 35,
+        "title": "Testing Finalization",
+        "tasks": [
+          "Conduct user acceptance testing",
+          "Fix remaining bugs",
+          "Optimize AI response accuracy"
+        ]
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "name": "Deployment & Launch Preparation",
+    "days": [
+      {
+        "day": 36,
+        "title": "Production Setup",
+        "tasks": [
+          "Configure production environment",
+          "Set up CI/CD pipeline",
+          "Test deployment workflows"
+        ]
+      },
+      {
+        "day": 37,
+        "title": "Monitoring and Logging",
+        "tasks": [
+          "Set up monitoring tools",
+          "Implement logging systems",
+          "Test error reporting"
+        ]
+      },
+      {
+        "day": 38,
+        "title": "Beta Testing Setup",
+        "tasks": [
+          "Invite beta users",
+          "Collect feedback",
+          "Fix beta bugs"
+        ]
+      },
+      {
+        "day": 39,
+        "title": "Performance Testing",
+        "tasks": [
+          "Conduct performance stress tests",
+          "Address bottlenecks",
+          "Ensure scalability"
+        ]
+      },
+      {
+        "day": 40,
+        "title": "Launch Preparation",
+        "tasks": [
+          "Finalize documentation",
+          "Set up customer support channels",
+          "Prepare marketing materials"
+        ]
+      },
+      {
+        "day": 41,
+        "title": "Launch Execution",
+        "tasks": [
+          "Push final build to production",
+          "Announce launch on social media",
+          "Monitor user traffic"
+        ]
+      },
+      {
+        "day": 42,
+        "title": "Post-Launch Maintenance",
+        "tasks": [
+          "Fix early launch issues",
+          "Monitor AI responses",
+          "Collect user feedback"
+        ]
+      },
+      {
+        "day": 43,
+        "title": "Continuous Improvement",
+        "tasks": [
+          "Analyze user behavior",
+          "Plan new features",
+          "Start Week 7 iteration"
+        ]
+      }
+    ]
+  }
   // ... other weeks would follow this structure
 ];
 
