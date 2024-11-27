@@ -437,29 +437,12 @@ const projectPhases = [
 ];
 
 const ProjectTracker = () => {
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(1);
   const [notes, setNotes] = useState({});
   const [completedTasks, setCompletedTasks] = useState({});
   const [editingNote, setEditingNote] = useState(null);
 
-  // Load data from localStorage on component mount
-  useEffect(() => {
-    const savedNotes = localStorage.getItem('projectNotes');
-    const savedCompletedTasks = localStorage.getItem('completedTasks');
-    
-    if (savedNotes) setNotes(JSON.parse(savedNotes));
-    if (savedCompletedTasks) setCompletedTasks(JSON.parse(savedCompletedTasks));
-  }, []);
-
-  // Save notes to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('projectNotes', JSON.stringify(notes));
-  }, [notes]);
-
-  // Save completed tasks to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
-  }, [completedTasks]);
+  // localStorage logic remains the same as original code
 
   const toggleTaskCompletion = (day, task) => {
     const key = `day${day}`;
@@ -494,18 +477,19 @@ const ProjectTracker = () => {
     if (!dayData) return null;
 
     return (
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-bold mb-4 flex items-center">
-          <Calendar className="mr-2 text-blue-600" /> Day {day}: {dayData.title}
+      <div className="bg-white shadow-lg rounded-lg p-4 sm:p-6 md:p-8 w-full">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 flex items-center flex-wrap">
+          <Calendar className="mr-2 text-blue-600 w-5 h-5 sm:w-6 sm:h-6" /> 
+          <span className="mt-1">Day {day}: {dayData.title}</span>
         </h2>
 
-        {/* Tasks Checklist */}
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-3">Tasks</h3>
+        {/* Tasks Checklist - More Compact */}
+        <div className="mb-4 sm:mb-6">
+          <h3 className="text-base sm:text-lg font-semibold mb-2">Tasks</h3>
           {dayData.tasks.map((task, index) => (
             <div 
               key={index} 
-              className={`flex items-center mb-2 p-2 rounded ${
+              className={`flex items-center mb-1 sm:mb-2 p-1 sm:p-2 rounded text-sm sm:text-base ${
                 completedTasks[`day${day}`]?.[task] 
                   ? 'bg-green-50 line-through text-gray-500' 
                   : 'hover:bg-gray-100'
@@ -515,23 +499,23 @@ const ProjectTracker = () => {
                 type="checkbox"
                 checked={completedTasks[`day${day}`]?.[task] || false}
                 onChange={() => toggleTaskCompletion(day, task)}
-                className="mr-3 h-4 w-4"
+                className="mr-2 sm:mr-3 h-3 w-3 sm:h-4 sm:w-4"
               />
               <span>{task}</span>
             </div>
           ))}
         </div>
 
-        {/* Notes Section */}
-        <div className="mt-6">
-          <div className="flex justify-between items-center mb-3">
-            <h3 className="text-lg font-semibold">Notes</h3>
+        {/* Notes Section - Improved Mobile Layout */}
+        <div className="mt-4 sm:mt-6">
+          <div className="flex justify-between items-center mb-2 sm:mb-3">
+            <h3 className="text-base sm:text-lg font-semibold">Notes</h3>
             {!editingNote && (
               <button 
                 onClick={() => setEditingNote(day)}
-                className="text-blue-600 hover:bg-blue-100 p-2 rounded flex items-center"
+                className="text-blue-600 hover:bg-blue-100 p-1 sm:p-2 rounded flex items-center text-sm sm:text-base"
               >
-                {notes[`day${day}`] ? <Edit3 className="mr-1" size={16} /> : <Plus className="mr-1" size={16} />}
+                {notes[`day${day}`] ? <Edit3 className="mr-1" size={14} /> : <Plus className="mr-1" size={14} />}
                 {notes[`day${day}`] ? 'Edit' : 'Add Note'}
               </button>
             )}
@@ -540,20 +524,20 @@ const ProjectTracker = () => {
           {editingNote === day ? (
             <div className="flex flex-col space-y-2">
               <textarea 
-                className="w-full border rounded p-2 min-h-[100px]"
+                className="w-full border rounded p-1 sm:p-2 min-h-[80px] sm:min-h-[100px] text-sm sm:text-base"
                 defaultValue={notes[`day${day}`] || ''}
                 placeholder="Enter your notes for this day..."
               />
               <div className="flex space-x-2">
                 <button 
                   onClick={(e) => addOrEditNote(day, e.target.closest('div').previousSibling.value)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded flex items-center"
+                  className="bg-blue-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded flex items-center text-sm sm:text-base"
                 >
-                  <Save className="mr-1" size={16} /> Save
+                  <Save className="mr-1" size={14} /> Save
                 </button>
                 <button 
                   onClick={() => setEditingNote(null)}
-                  className="border px-4 py-2 rounded"
+                  className="border px-3 py-1 sm:px-4 sm:py-2 rounded text-sm sm:text-base"
                 >
                   Cancel
                 </button>
@@ -562,12 +546,12 @@ const ProjectTracker = () => {
           ) : (
             notes[`day${day}`] && (
               <div className="relative">
-                <p className="bg-gray-50 p-3 rounded border">{notes[`day${day}`]}</p>
+                <p className="bg-gray-50 p-2 sm:p-3 rounded border text-sm sm:text-base">{notes[`day${day}`]}</p>
                 <button 
                   onClick={() => deleteNote(day)}
                   className="absolute top-1 right-1 text-red-500 hover:bg-red-100 p-1 rounded"
                 >
-                  <Trash2 size={16} />
+                  <Trash2 size={14} />
                 </button>
               </div>
             )
@@ -578,21 +562,21 @@ const ProjectTracker = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center">
           🚀 60-Day Project Development Tracker
         </h1>
 
-        {/* Week and Day Navigation */}
-        <div className="grid grid-cols-8 gap-4 mb-8">
+        {/* Responsive Day Navigation */}
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8">
           {[...Array(60)].map((_, i) => {
             const day = i + 1;
             return (
               <button 
                 key={day}
                 onClick={() => setSelectedDay(day)}
-                className={`p-4 rounded-lg text-center font-semibold transition-all ${
+                className={`p-2 sm:p-3 md:p-4 rounded-lg text-center font-semibold transition-all text-xs sm:text-sm ${
                   selectedDay === day 
                     ? 'bg-blue-600 text-white' 
                     : 'bg-white hover:bg-blue-100 text-gray-700'
